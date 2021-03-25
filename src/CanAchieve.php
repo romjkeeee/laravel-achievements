@@ -11,7 +11,7 @@ namespace Assada\Achievements;
 interface CanAchieve
 {
     // Adds an specified amount of points of progress
-    public function addProgressToAchiever($achiever, $points);
+    public function addProgressToAchiever($achiever, $points, $masterFileId);
 
     // Sets the specified amount of points to this achiever
     public function setProgressToAchiever($achiever, $points);

@@ -38,6 +38,7 @@ class CreateAchievementsTables extends Migration
                 $table->string('description');
                 $table->unsignedInteger('points')->default(1);
                 $table->boolean('secret')->default(false);
+                $table->boolean('daily')->default(false);
                 $table->string('class_name');
                 $table->timestamps();
             }
@@ -48,6 +49,7 @@ class CreateAchievementsTables extends Migration
                 $table->uuid('id')->primary();
                 $table->unsignedInteger('achievement_id');
                 $table->morphs('achiever');
+                $table->integer('master_file_id')->nullable();
                 $table->unsignedInteger('points')->default(0);
                 $table->timestamp('unlocked_at')->nullable()->default(null);
                 $table->timestamps();

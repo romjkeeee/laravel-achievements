@@ -18,12 +18,12 @@ trait RoutesAchievements
      *
      * @param CanAchieve $instance An instance of an achievement
      * @param mixed $points The amount of points to add to the achievement's progress
-     *
+     * @param null $masterFileId
      * @return void
      */
-    public function addProgress(CanAchieve $instance, $points = 1): void
+    public function addProgress(CanAchieve $instance, $points = 1, $masterFileId = null): void
     {
-        $instance->addProgressToAchiever($this, $points);
+        $instance->addProgressToAchiever($this, $points, $masterFileId);
     }
 
     /**

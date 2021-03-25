@@ -43,6 +43,7 @@ abstract class Achievement implements CanAchieve
      */
     public $secret = false;
 
+    public $daily = false;
     /*
      * The model class for this achievement.
      */
@@ -109,6 +110,7 @@ abstract class Achievement implements CanAchieve
             $model->description = $this->description;
             $model->points = $this->points;
             $model->secret = $this->secret;
+            $model->daily = $this->daily;
 
             // Syncs
             $model->save();
@@ -123,12 +125,15 @@ abstract class Achievement implements CanAchieve
      *
      * @param mixed $achiever The entity that will add progress to this achievement
      * @param int $points The amount of points to be added to this achievement
+     * @param $masterFileId
+     * @throws \Exception
      */
-    public function addProgressToAchiever($achiever, $points = 1): void
+    public function addProgressToAchiever($achiever, $points = 1, $masterFileId = null): void
     {
         $progress = $this->getOrCreateProgressForAchiever($achiever);
         if (!$progress->isUnlocked()) {
             $progress->points += $points;
+            $progress->master_file_id = $masterFileId;
             $progress->save();
         }
     }

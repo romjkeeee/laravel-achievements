@@ -41,12 +41,14 @@ abstract class AchievementChain implements CanAchieve
     /**
      * @param $achiever
      * @param $points
+     * @param $masterFileId
+     * @throws \Exception
      */
-    public function addProgressToAchiever($achiever, $points): void
+    public function addProgressToAchiever($achiever, $points, $masterFileId = null): void
     {
         foreach ($this->chain() as $instance) {
             /** @var Achievement $instance */
-            $instance->addProgressToAchiever($achiever, $points);
+            $instance->addProgressToAchiever($achiever, $points, $masterFileId);
         }
     }
 
