@@ -1,5 +1,5 @@
 {
-    "name": "assada/laravel-achievements",
+    "name": "romjkeeee/laravel-achievements",
     "description": "Achievements for Laravel 6+",
     "license": "MIT",
     "authors": [
@@ -10,6 +10,10 @@
         {
             "name": "Alex Ilyenko",
             "email": "assada.ua@gmail.com"
+        }
+        {
+            "name": "Roman S",
+            "email": "romjkeeeen@gmail.com"
         }
     ],
     "autoload": {
